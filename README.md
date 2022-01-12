@@ -1,12 +1,12 @@
-#About The Project
+# About The Project
 
-##TestTask for Alar Studios
+## TestTask for Alar Studios
 
 Python Flask application with authentication, allows to add, edit and delete users, 
 give or denied access, collect data from three json-files with async requests, 
 sort it by ids and display on page.
 
-##Built With
+## Built With
 
 * Python 3.9
 * Flask
@@ -17,7 +17,7 @@ sort it by ids and display on page.
 * Aiohttp
 * Bootstrap
 
-##Installation
+## Installation
 
 * Configure database settings in app_config.py and database.ini
 * Create database
@@ -31,6 +31,6 @@ sort it by ids and display on page.
 * Navigate to root directory
 * Run app: *gunicorn wsgi:app*
 
-##Contact
+## Contact
 
 Mikhail Antonov *allelementaryfor@gmail.com*
