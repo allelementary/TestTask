@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Async requests</h1>
+  <a class="btn btn-success" href="/async/display_data">Get data</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+    {% if sorted_data %}
+    {% for data in sorted_data %}
+      <tr>
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+      </tr>
+    {% endfor %}
+    {% else %}
+      <tr>
+        <td>Press Get data</td>
+      </tr>
+    {% endif %}
+  </table>
+{% endblock %}

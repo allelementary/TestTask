@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Test Task App</h1>
+    {% if session.logged_in == NULL or session.logged_in == None %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% else %}
+      <a href="/dashboard" class="btn btn-success btn-lg">Dashboard</a>
+    {% endif %}
+  </div>
+{% endblock %}

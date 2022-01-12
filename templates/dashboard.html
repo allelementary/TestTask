@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small> Welcome {{session.first_name}}</small></h1>
+  <a class="btn btn-success" href="/dashboard/add_account">Add User</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Email address</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Access</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    {% for user in users %}
+      <tr>
+        <td>{{user.email}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        {% if user.access > 0 %}
+        <td>
+          <form action="{{url_for('dashboard.denied_access', user_id=user.id)}}" method="post">
+            <input type="hidden" name="_method" value="Denied Access">
+            <input type="submit" value="Denied Access" class="btn btn-danger">
+          </form>
+        </td>
+        {% else %}
+        <td>
+          <form action="{{url_for('dashboard.give_access', user_id=user.id)}}" method="post">
+            <input type="hidden" name="_method" value="Give Access">
+            <input type="submit" value="Give Access" class="btn btn-success">
+          </form>
+        </td>
+        {% endif %}
+        <td>
+            <a href="edit_account/{{user.id}}" class="btn btn-default">Edit Account</a>
+        </td>
+        <td>
+            <a href="delete_account/{{user.id}}" class="btn btn-default">Delete Account</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
